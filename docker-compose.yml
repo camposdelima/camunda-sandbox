@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    # mysql-db:
+        # image: mysql:latest
+        # container_name: camunda_mysql
+        # ports:
+            # - '8050:3306'
+        # environment:
+            # MYSQL_ROOT_PASSWORD: root
+            # MYSQL_USER: root
+            # MYSQL_DATABASE: camunda_db
+    db:
+        image: postgres:alpine
+        container_name: camunda_db
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: process-engine
+    camunda:
+        image: camunda/camunda-bpm-platform
+        container_name: camunda_bpm
+        ports:
+            - '8051:8080'
+        environment:
+            WAIT_FOR: db:5432
+            DB_DRIVER: org.postgresql.Driver
+            DB_URL: jdbc:postgresql://db:5432/process-engine
+            DB_USERNAME: postgres
+            DB_PASSWORD: password
+        depends_on:
+            - 'db'
+        # environment:
+            # WAIT_FOR: mysql-db:3306
+            # DB_DRIVER: com.mysql.jdbc.Driver
+            # DB_URL: jdbc:mysql://mysql-db:3306/camunda_db?autoReconnect=true
+            # DB_USERNAME: root
+            # DB_PASSWORD: root
+        # depends_on:
+            # - 'mysql-db'

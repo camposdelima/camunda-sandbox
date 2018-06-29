@@ -1,0 +1,22 @@
+{
+  "name": "camunda-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camposdelima/camunda-sandbox.git"
+  },
+  "author": "cristiano.campos@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camposdelima/camunda-sandbox/issues"
+  },
+  "homepage": "https://github.com/camposdelima/camunda-sandbox#readme",
+  "dependencies": {
+    "camunda-external-task-client-js": "^1.0.0"
+  }
+}
