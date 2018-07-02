@@ -14,9 +14,10 @@ client.subscribe('say-hello', async function({ task, taskService }) {
   // // Put your business logic here
 
   // // Get a process variable
-  // const amount = task.variables.get('amount');
+  const amount = task.variables.getAll('amount');
   // const item = task.variables.get('item');
 
+  console.log(amount);
   // console.log(`Charging credit card with an amount of ${amount}€ for the item '${item}'...`);
 
 
